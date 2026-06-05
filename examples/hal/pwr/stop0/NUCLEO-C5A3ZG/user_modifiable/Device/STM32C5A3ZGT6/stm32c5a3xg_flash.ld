@@ -1,7 +1,7 @@
 /**
 ******************************************************************************
-* @file    stm32c5a3xg_flash.ld
-* @brief   Linker File
+* @file    stm32c5a3xg_flash_app.ld
+* @brief   Linker File for UF2 Application (offset after 32KB bootloader)
 ******************************************************************************
 * @attention
 *
@@ -24,7 +24,7 @@ STACK_SIZE = 0x400;
 
 MEMORY
 {
-  ROM (rx) : org = 0x8000000, len = 0x100000
+  ROM (rx) : org = 0x08008000, len = 0x0F8000   /* 32KB offset for bootloader, remaining 992KB */
   RAM (xrw) : org = 0x20000000, len = 0x20000
 }
 
